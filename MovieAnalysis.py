@@ -10,12 +10,17 @@ import sys
 import datetime 
 
 
+if len(sys.argv) < 2:
+    print('No dataset found. Usage: python MovieAnalysis.py <dataset file>')
+    exit()
+else:
+    dataset = sys.argv[1]
 
 #setting up current year
 current_year = datetime.date.today().year
 
 #importing data
-movies = pd.read_excel('movies_df.xlsx')
+movies = pd.read_excel(dataset)
 oscars = pd.read_excel('oscars.xlsx')
 gold_globe = pd.read_excel('golden_globes.xlsx')
 sag = pd.read_excel('sag.xlsx')
